@@ -303,6 +303,11 @@ const login = async (req, res) => {
     }
 
     const normalizedEmail = email.toLowerCase().trim();
+
+    if (!process.env.MONGO_URI) {
+      return res.status(500).json({ success: false, message: 'Database is not configured for this deployment.' });
+    }
+
     const user = await User.findOne({ email: normalizedEmail });
 
     if (!user) {
