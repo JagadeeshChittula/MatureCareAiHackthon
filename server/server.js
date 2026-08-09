@@ -23,27 +23,20 @@ connectDB().catch(() => {
 
 const app = express();
 
-// Middlewares
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'http://localhost:3000',
-  'https://mature-care-ai-hackthon.vercel.app',
-  process.env.CLIENT_URL,
-].filter(Boolean);
-
+// Flexible CORS for Localhost & Vercel Preview Deployments
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
+    if (!origin || origin.includes('localhost') || origin.endsWith('.vercel.app')) {
       callback(null, true);
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(null, true); // Permissive CORS for hackathon evaluation
     }
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
