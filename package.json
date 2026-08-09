@@ -1,0 +1,7 @@
+{
+  "name": "matrucare-ai-hackathon",
+  "private": true,
+  "scripts": {
+    "build": "npm --prefix client install && npm --prefix client run build"
+  }
+}
