@@ -18,6 +18,7 @@ import {
   AlertCircle,
   ExternalLink,
   CheckCircle2,
+  ListOrdered,
 } from 'lucide-react';
 
 const PREDEFINED_COLLEGES = [
@@ -180,7 +181,7 @@ const Registration = () => {
       {toast && <Toast message={toast.message} type={toast.type} onClose={() => setToast(null)} />}
 
       {/* Title */}
-      <div className="text-center mb-10 space-y-2">
+      <div className="text-center mb-8 space-y-2">
         <span className="px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider">
           Official Entry Portal
         </span>
@@ -188,6 +189,25 @@ const Registration = () => {
         <p className="text-slate-400 text-sm max-w-xl mx-auto">
           Complete the form below to submit your team project entry to MatruCare AI.
         </p>
+      </div>
+
+      {/* Form Progress Indicator Header */}
+      <div className="mb-8 p-4 rounded-2xl glass-panel border border-slate-800 hidden sm:flex items-center justify-between text-xs font-semibold text-slate-400">
+        <div className="flex items-center gap-2 text-cyan-400">
+          <CheckCircle2 className="w-4 h-4" /> 1. Contact Info
+        </div>
+        <div className="h-0.5 w-8 bg-slate-800"></div>
+        <div className="flex items-center gap-2 text-emerald-400">
+          <CheckCircle2 className="w-4 h-4" /> 2. Academics
+        </div>
+        <div className="h-0.5 w-8 bg-slate-800"></div>
+        <div className="flex items-center gap-2 text-purple-400">
+          <CheckCircle2 className="w-4 h-4" /> 3. Project Links
+        </div>
+        <div className="h-0.5 w-8 bg-slate-800"></div>
+        <div className="flex items-center gap-2 text-amber-400">
+          <CheckCircle2 className="w-4 h-4" /> 4. Team Roster
+        </div>
       </div>
 
       {/* Main Form Formatted into 4 Clean Cards */}

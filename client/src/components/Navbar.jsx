@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { Menu, X, Cpu, LogOut, LayoutDashboard, Sparkles, ArrowRight } from 'lucide-react';
+import { Menu, X, Cpu, LogOut, LayoutDashboard, Sparkles, Activity } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,27 +21,36 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition duration-300">
-              <div className="w-full h-full bg-[#080c14] rounded-[9.5px] flex items-center justify-center">
-                <Cpu className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition duration-300" />
+          {/* Logo & System Badge */}
+          <div className="flex items-center gap-4">
+            <Link to="/" className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition duration-300">
+                <div className="w-full h-full bg-[#080c14] rounded-[9.5px] flex items-center justify-center">
+                  <Cpu className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition duration-300" />
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1">
-                <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-cyan-400 transition">
-                  MatruCare
-                </span>
-                <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-black text-xl">
-                  AI
+              <div className="flex flex-col">
+                <div className="flex items-center gap-1">
+                  <span className="font-extrabold text-xl tracking-tight text-white group-hover:text-cyan-400 transition">
+                    MatruCare
+                  </span>
+                  <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-black text-xl">
+                    AI
+                  </span>
+                </div>
+                <span className="text-[10px] tracking-widest text-slate-400 font-semibold uppercase">
+                  Hackathon Portal
                 </span>
               </div>
-              <span className="text-[10px] tracking-widest text-slate-400 font-semibold uppercase">
-                Hackathon Portal
-              </span>
+            </Link>
+
+            {/* Live Operational Status Indicator */}
+            <div className="hidden lg:flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[11px] font-semibold text-emerald-400">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+              <span className="w-2 h-2 rounded-full bg-emerald-400 -ml-3.5"></span>
+              Systems Operational
             </div>
-          </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-2">

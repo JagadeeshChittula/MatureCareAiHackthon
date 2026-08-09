@@ -16,6 +16,8 @@ import {
   BookOpen,
   Sparkles,
   Video,
+  Copy,
+  Check,
 } from 'lucide-react';
 
 const Dashboard = () => {
@@ -25,6 +27,7 @@ const Dashboard = () => {
   const [loading, setLoading] = useState(true);
   const [deleteLoading, setDeleteLoading] = useState(false);
   const [toast, setToast] = useState(null);
+  const [copiedField, setCopiedField] = useState(null);
 
   const fetchMyEntry = async () => {
     try {
@@ -43,6 +46,12 @@ const Dashboard = () => {
   useEffect(() => {
     fetchMyEntry();
   }, []);
+
+  const handleCopyLink = (text, fieldName) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(fieldName);
+    setTimeout(() => setCopiedField(null), 2000);
+  };
 
   const handleDeleteEntry = async () => {
     if (!entryData?._id) return;
@@ -167,47 +176,71 @@ const Dashboard = () => {
                   </div>
                 </div>
 
-                {/* Asset Links */}
+                {/* Asset Links with Copy Buttons */}
                 <div className="space-y-3 pt-2">
                   <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider">Submitted Project Assets</h4>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                     
-                    <a
-                      href={entryData.pptLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500 flex items-center justify-between text-slate-200 hover:text-cyan-400 transition"
-                    >
-                      <span className="flex items-center gap-2 font-semibold">
-                        <BookOpen className="w-4 h-4 text-cyan-400" /> PPT Presentation Link
-                      </span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-
-                    <a
-                      href={entryData.prototypeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500 flex items-center justify-between text-slate-200 hover:text-emerald-400 transition"
-                    >
-                      <span className="flex items-center gap-2 font-semibold">
-                        <FileCode className="w-4 h-4 text-emerald-400" /> Prototype / Code Link
-                      </span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
-
-                    {entryData.demoVideoLink && (
+                    <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
                       <a
-                        href={entryData.demoVideoLink}
+                        href={entryData.pptLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-4 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-500 flex items-center justify-between text-slate-200 hover:text-purple-400 transition sm:col-span-2"
+                        className="flex items-center gap-2 font-semibold text-slate-200 hover:text-cyan-400 transition truncate mr-2"
                       >
-                        <span className="flex items-center gap-2 font-semibold">
-                          <Video className="w-4 h-4 text-purple-400" /> Demo Video Link
-                        </span>
-                        <ExternalLink className="w-4 h-4" />
+                        <BookOpen className="w-4 h-4 text-cyan-400 shrink-0" />
+                        <span className="truncate">PPT Link</span>
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
                       </a>
+                      <button
+                        onClick={() => handleCopyLink(entryData.pptLink, 'ppt')}
+                        className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                        title="Copy Link"
+                      >
+                        {copiedField === 'ppt' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between">
+                      <a
+                        href={entryData.prototypeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 font-semibold text-slate-200 hover:text-emerald-400 transition truncate mr-2"
+                      >
+                        <FileCode className="w-4 h-4 text-emerald-400 shrink-0" />
+                        <span className="truncate">Prototype Link</span>
+                        <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                      </a>
+                      <button
+                        onClick={() => handleCopyLink(entryData.prototypeLink, 'prototype')}
+                        className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                        title="Copy Link"
+                      >
+                        {copiedField === 'prototype' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                      </button>
+                    </div>
+
+                    {entryData.demoVideoLink && (
+                      <div className="p-4 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between sm:col-span-2">
+                        <a
+                          href={entryData.demoVideoLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-2 font-semibold text-slate-200 hover:text-purple-400 transition truncate mr-2"
+                        >
+                          <Video className="w-4 h-4 text-purple-400 shrink-0" />
+                          <span className="truncate">Demo Video Link</span>
+                          <ExternalLink className="w-3.5 h-3.5 shrink-0" />
+                        </a>
+                        <button
+                          onClick={() => handleCopyLink(entryData.demoVideoLink, 'video')}
+                          className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                          title="Copy Link"
+                        >
+                          {copiedField === 'video' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
                     )}
 
                   </div>
