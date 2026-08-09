@@ -27,12 +27,13 @@ const Home = () => {
       {/* HERO SECTION */}
       <section className="relative pt-16 lg:pt-24 overflow-hidden">
         {/* Soft Ambient Background Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-tr from-cyan-500/15 via-purple-500/15 to-emerald-500/10 blur-[130px] pointer-events-none rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[400px] bg-gradient-to-tr from-cyan-500/15 via-purple-500/15 to-emerald-500/10 blur-[130px] pointer-events-none rounded-full animated-blob" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           
           {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-cyan-300 text-xs font-semibold uppercase tracking-wider mb-8 shadow-lg shadow-cyan-500/10">
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 pulse-dot"></span>
             <Sparkles className="w-4 h-4 text-cyan-400" />
             MatruCare AI Internship Programme • National Track 2026
           </div>
@@ -54,7 +55,7 @@ const Home = () => {
             {isAuthenticated ? (
               <Link
                 to="/dashboard"
-                className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2.5 transition transform hover:-translate-y-0.5"
+                className="w-full sm:w-auto px-8 py-4 rounded-2xl text-base font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-xl shadow-cyan-500/20 flex items-center justify-center gap-2.5 transition transform hover:-translate-y-0.5 shimmer-hover"
               >
                 Open Participant Dashboard
                 <ArrowRight className="w-5 h-5" />
@@ -80,19 +81,19 @@ const Home = () => {
 
           {/* Metric Highlights */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800">
+            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800 interactive-card">
               <div className="text-2xl sm:text-3xl font-extrabold text-cyan-400">100% MERN</div>
               <div className="text-xs text-slate-400 font-medium mt-1">Full Stack Architecture</div>
             </div>
-            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800">
+            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800 interactive-card">
               <div className="text-2xl sm:text-3xl font-extrabold text-emerald-400">1 - 5</div>
               <div className="text-xs text-slate-400 font-medium mt-1">Dynamic Team Members</div>
             </div>
-            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800">
+            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800 interactive-card">
               <div className="text-2xl sm:text-3xl font-extrabold text-purple-400">Nodemailer</div>
               <div className="text-xs text-slate-400 font-medium mt-1">6-Digit OTP Verification</div>
             </div>
-            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800">
+            <div className="p-5 rounded-2xl glass-panel text-center border border-slate-800 interactive-card">
               <div className="text-2xl sm:text-3xl font-extrabold text-amber-400">Fast-Track</div>
               <div className="text-xs text-slate-400 font-medium mt-1">Internship Opportunities</div>
             </div>
@@ -117,7 +118,7 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-cyan-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-cyan-500/40">
             <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 mb-5">
               <Cpu className="w-6 h-6" />
             </div>
@@ -127,7 +128,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-emerald-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-emerald-500/40">
             <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-5">
               <Code2 className="w-6 h-6" />
             </div>
@@ -137,7 +138,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-purple-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-purple-500/40">
             <div className="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 mb-5">
               <Layers className="w-6 h-6" />
             </div>
@@ -147,7 +148,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-rose-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-rose-500/40">
             <div className="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-400 mb-5">
               <ShieldCheck className="w-6 h-6" />
             </div>
@@ -157,7 +158,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-amber-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-amber-500/40">
             <div className="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-5">
               <Award className="w-6 h-6" />
             </div>
@@ -167,7 +168,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 hover:border-sky-500/40 transition duration-300">
+          <div className="p-7 rounded-3xl glass-panel border border-slate-800/80 interactive-card hover:border-sky-500/40">
             <div className="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center text-sky-400 mb-5">
               <Zap className="w-6 h-6" />
             </div>
@@ -187,7 +188,7 @@ const Home = () => {
           <p className="text-slate-400 text-sm mt-2">Clear step-by-step roadmap from registration to evaluation.</p>
         </div>
 
-        <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-slate-800/80 space-y-8">
+        <div className="p-8 sm:p-10 rounded-3xl glass-panel border border-slate-800/80 space-y-8 interactive-card">
           
           <div className="flex gap-4">
             <div className="w-10 h-10 rounded-xl bg-cyan-500 text-slate-950 font-black text-sm flex items-center justify-center shrink-0 shadow-lg shadow-cyan-500/30">
@@ -233,7 +234,7 @@ const Home = () => {
 
       {/* BOTTOM BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-slate-900 via-[#0b1329] to-slate-900 border border-cyan-500/30 text-center relative overflow-hidden shadow-2xl">
+        <div className="p-10 sm:p-14 rounded-3xl bg-gradient-to-r from-slate-900 via-[#0b1329] to-slate-900 border border-cyan-500/30 text-center relative overflow-hidden shadow-2xl interactive-card shimmer-hover">
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
             Ready to Submit Your Hackathon Entry?
           </h2>

@@ -22,7 +22,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group transition-transform hover:scale-[1.02]">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 via-indigo-500 to-emerald-400 p-[1.5px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-500/40 transition duration-300">
               <div className="w-full h-full bg-[#080c14] rounded-[9.5px] flex items-center justify-center">
                 <Cpu className="w-5 h-5 text-cyan-400 group-hover:rotate-12 transition duration-300" />
@@ -74,7 +74,7 @@ const Navbar = () => {
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-slate-800">
                 <Link
                   to="/dashboard"
-                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition ${
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition hover:-translate-y-0.5 ${
                     isActive('/dashboard') ? 'text-cyan-400 bg-cyan-500/10 border border-cyan-500/20' : 'text-slate-200 hover:text-white hover:bg-slate-800/50'
                   }`}
                 >
@@ -83,7 +83,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-rose-400 hover:bg-rose-500/10 border border-rose-500/20 transition"
+                  className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-rose-400 hover:bg-rose-500/10 border border-rose-500/20 transition hover:-translate-y-0.5"
                 >
                   <LogOut className="w-4 h-4" />
                   Logout
@@ -93,13 +93,13 @@ const Navbar = () => {
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-slate-800">
                 <Link
                   to="/login"
-                  className="px-5 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/60 transition border border-slate-700/80"
+                  className="px-5 py-2 rounded-xl text-sm font-semibold text-slate-200 hover:text-white hover:bg-slate-800/60 transition border border-slate-700/80 hover:-translate-y-0.5"
                 >
                   Login
                 </Link>
                 <Link
                   to="/signup"
-                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-md shadow-cyan-500/20 transition duration-200"
+                  className="flex items-center gap-1.5 px-5 py-2 rounded-xl text-sm font-bold text-slate-950 bg-gradient-to-r from-cyan-400 to-emerald-400 hover:from-cyan-300 hover:to-emerald-300 shadow-md shadow-cyan-500/20 transition duration-200 hover:-translate-y-0.5"
                 >
                   <Sparkles className="w-4 h-4 text-slate-950" />
                   Signup
