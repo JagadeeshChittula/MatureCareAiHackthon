@@ -40,6 +40,10 @@ const signup = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+    if (!process.env.MONGO_URI) {
+      return res.status(500).json({ success: false, message: 'Database is not configured for this deployment.' });
+    }
+
     let existingUser = await User.findOne({ email: normalizedEmail });
 
     if (existingUser && existingUser.isVerified) {
