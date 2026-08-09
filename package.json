@@ -2,7 +2,7 @@
   "name": "matrucare-ai-hackathon",
   "private": true,
   "scripts": {
-    "build": "cd client && npm install && npm run build"
+    "build": "cd client && npm install && npm run build && cd .. && node -e \"require('fs').cpSync('client/dist', 'dist', {recursive: true})\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
